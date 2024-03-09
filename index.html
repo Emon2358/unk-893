@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Website Title</title>
+    <style>
+      body {
+        background-image: url("https://lohas.nicoseiga.jp/thumb/3260778i?");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: #00ffae;
+        margin: 0;
+        filter: blur(10px);
+        transition: filter 0.5s ease-in-out;
+      }
+
+      body.loaded {
+        filter: blur(0);
+      }
+
+      header {
+        padding: 20px;
+        text-align: center;
+        z-index: 1000;
+      }
+
+      nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      nav li {
+        margin: 0 15px;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #00ffae;
+        font-weight: bold;
+      }
+
+      main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 60vh;
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+      }
+
+      main.show {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      section {
+        text-align: center;
+      }
+
+      footer {
+        background-color: rgba(91, 101, 98, 0.7);
+        padding: 10px;
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+
+      #newsButton,
+      #weatherButton,
+      #stockButton,
+      #discordButton {
+        position: fixed;
+        bottom: 20px;
+        padding: 10px;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      #newsButton {
+        background-color: rgba(0, 0, 0, 0.7);
+        right: 230px;
+      }
+
+      #weatherButton {
+        background-color: rgba(0, 0, 0, 0.7);
+        right: 115px;
+      }
+
+      #stockButton {
+        background-color: rgba(0, 0, 0, 0.7);
+        right: 20px;
+      }
+
+      #discordButton {
+        background-color: rgba(0, 0, 0, 0.7);
+        right: 345px;
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loadingContainer">
+      <div id="loadingSquare"></div>
+      Loading...
+    </div>
+
+    <header>
+      <h1>Welcome to the fields and countryside!</h1>
+      <nav>
+        <ul>
+          <li><a href="#">You can see today's day just from this site!</a></li>
+          <li><a href="#"></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2>Created by Linda!</h2>
+        <p>Hello! This website was created on February 23, 2024!</p>
+      </section>
+    </main>
+
+    <div id="newsButton" onclick="openRandomNews()">News</div>
+    <div id="discordButton" onclick="openDiscord()">Discord</div>
+    <div id="weatherButton" onclick="openWeather()">Weather</div>
+    <div id="stockButton" onclick="openStock()">Stock</div>
+
+    <script>
+      function openRandomNews() {
+        window.open("https://news.yahoo.co.jp/", "_blank");
+      }
+
+      function openWeather() {
+        window.open("https://weathernews.jp/", "_blank");
+      }
+
+      function openStock() {
+        window.open("https://finance.yahoo.co.jp/", "_blank");
+      }
+
+      function openDiscord() {
+        window.open(
+          "https://emon2358.github.io/-Emon2358.github.io/",
+          "_blank"
+        );
+      }
+
+      setTimeout(function () {
+        document.getElementById("loadingContainer").style.display = "none";
+        document.body.classList.add("loaded");
+
+        document.getElementsByTagName("main")[0].classList.add("show");
+      }, 5000);
+    </script>
+  </body>
+</html>
